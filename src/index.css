@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navigation animations */
+.nav-item {
+  @apply relative;
+}
+
+.nav-item::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300;
+}
+
+.nav-item:hover::after {
+  @apply w-full;
+}
+
+/* Mobile menu animations */
+.mobile-menu-enter {
+  @apply transform translate-y-[-10%] opacity-0;
+}
+
+.mobile-menu-enter-active {
+  @apply transform translate-y-0 opacity-100 transition-all duration-300;
+}
+
+.mobile-menu-exit {
+  @apply transform translate-y-0 opacity-100;
+}
+
+.mobile-menu-exit-active {
+  @apply transform translate-y-[-10%] opacity-0 transition-all duration-300;
+}
